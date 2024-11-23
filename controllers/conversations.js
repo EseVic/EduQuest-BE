@@ -56,11 +56,17 @@ converationRouter.post('/', userExtractor, async (req, res) => {
     res.status(429).json({
       error: 'Free tier exceeded, subscribe to continue inquiring',
     });
-  } else {
-    const response = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
-      messages: [{ role: 'user', content: message }],
-    });
+  } else  {
+    let response
+    try {
+       response = await openai.chat.completions.create({
+        model: 'gpt-3.5-turbo',
+        messages: [{ role: 'user', content: message }],
+      });
+    } catch (error) {
+      res.status(400).json(error)
+    }
+    
 
     if (!response) {
       res.status(400).json({
