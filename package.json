@@ -1,5 +1,5 @@
 {
-  "name": "inquirehub_server",
+  "name": "edu_quest_server",
   "version": "1.0.0",
   "description": "Backend for handling authentication",
   "main": "index.js",

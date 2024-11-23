@@ -58,7 +58,7 @@ articleRouter.post('/', userExtractor, async (req, res) => {
     });
   } else {
     const instructionMessage =
-      'You are a blog and article generator. You must answer using well elaborated words and sentences. Use headings and subheadings. Write on ';
+      'You are in blog and article generator. You must answer using well elaborated words and sentences. Use headings and subheadings. Write on ';
 
     const response = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
